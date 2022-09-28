@@ -12,6 +12,7 @@ import pandas as pd
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 import io
+import os
 from office365.sharepoint.client_context import ClientContext
 from office365.sharepoint.files.file import File
 
@@ -217,7 +218,7 @@ def get_rate():
     ds_endpoint = "https://scanpaintmx1.on.plex.com/api/datasources/4494/execute"
 
     headers = {
-        "Authorization": "Basic U2NhbnBhaW50TVhXczFAcGxleC5jb206ODJhNDgxOS05YTkzLTQ=",
+        "Authorization": os.environ.get("AUT_PLEX"),
         "Content-Type": "application/json;charset=utf-8",
         "Accept": "application/json",
         "Accept-Encoding": "application/gzip",
@@ -275,8 +276,8 @@ def test():
 def test_json_plex_sharepoint():
     url = "https://scanpaint.sharepoint.com/sites/Innovacion"
 
-    username = "depinnovacion@scanpaint.com"
-    password = "Scanpaint.2021"
+    username = os.environ.get("SHAREPOINT_USER")
+    password = os.environ.get("SHAREPOINT_PASS")
 
     ctx = ClientContext(url).with_user_credentials(username, password)
     # file_url = '/sites/team/Shared Documents/big_buck_bunny.mp4'
