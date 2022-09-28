@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<div class="content-section">
+
+    <table class="table table-bordered table-striped table-hover" >
+
+                <thead>
+                    <th>PART_NO</th>
+                    <th>REVISION</th>
+                    <th>PRODUCT_TYPE</th>
+                    <th>WORKCENTER_CODE</th>
+                    <th>CREW_SIZE</th>
+                    <th>SETUP_TIME</th>
+                    <th>TARGET_RATE</th>
+                    <th>IDEAL_RATE</th>
+                    <th>STANDARD_PRODUCTION_RATE</th>
+                    <th>PART_KEY</th>
+                </thead>
+
+      <tbody>
+
+              {% for key,value in pdf.iterrows() %}
+        <tr>
+                  <td>{{ value['PART_NO'] }}</td>
+                  <td>{{ value['REVISION'] }}</td>
+                  <td>{{ value['PRODUCT_TYPE'] }}</td>
+                  <td>{{ value['WORKCENTER_CODE'] }}</td>
+                  <td>{{ value['CREW_SIZE'] }}</td>
+                  <td>{{ value['SETUP_TIME'] }}</td>
+                  <td>{{ value['TARGET_RATE'] }}</td>
+                  <td>{{ value['IDEAL_RATE'] }}</td>
+                  <td>{{ value['STANDARD_PRODUCTION_RATE'] }}</td>
+                  <td>{{ value['PART_KEY'] }}</td>
+        </tr>
+              {%endfor%}
+
+
+
+    </tbody>
+</table>
+
+
+</div>
+
+
+{% endblock %}

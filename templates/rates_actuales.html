@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+                <h1>Rates Actuales</h1>
+
+                        {% if rates == []: %}
+                        <p>No hay Rates.</p>
+                        {% endif %}
+
+                        <table class="table table-bordered table-striped table-hover">
+
+                                <thead>
+                                    <tr>
+                                      <th scope="col">#</th>
+                                      {%for i in columns%}
+                                      <th scope="col">{{i[0]}}{{i[1]}}{{i[2]}}{{i[3]}}{{i[4]}}{{i[5]}}{{i[6]}}{{i[7]}}{{i[8]}}{{i[9]}}{{i[10]}}{{i[11]}}{{i[12]}}{{i[13]}}{{i[14]}}{{i[15]}}{{i[16]}}{{i[17]}}</th>
+                                      {%endfor%}
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+
+                                    {%for i in rows%}
+
+                                    <tr>
+                                          <th scope="row">{{loop.index}}</th>
+                                          {%for k in i%}
+                                          <td>{{k}}</td>
+                                          {%endfor%}
+                                      </tr>
+
+                                    {%endfor%}
+                                    </tbody>
+                        </table>
+
+
+
+{% endblock %}

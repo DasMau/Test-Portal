@@ -1,0 +1,35 @@
+{
+  "outputs": {},
+  "tables": [
+    {
+      "columns": [
+        "Crew_Size",
+        "Standard_Production_Rate",
+        "WorkCenter_Key",
+        "Sort_Order",
+        "Note",
+        "Workcenter_Code",
+        "Setup_Time",
+        "Target_Rate",
+        "Ideal_Rate",
+        "Cycle_Time"
+      ],
+      "rowLimitExceeded": false,
+      "rows": [
+        [
+          9.0,
+          203.0,
+          43294,
+          10,
+          "",
+          "C-Linea 1",
+          0.0,
+          203.0,
+          203.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "transactionNo": "93919"
+}

@@ -1,0 +1,45 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+
+                <h1>Lista de Colgados</h1>
+
+                        {% if colgados == []: %}
+                        <p>No hay Colgados Registrados.</p>
+                        {% endif %}
+
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <th>ID</th>
+                                <th>Part_Key</th>
+                                <th>Part_No</th>
+                                <th>Pieza_Rack</th>
+                                <th>Rack_Eslabon</th>
+                            </thead>
+                            <tbody>
+                                {% for colgado in colgados %}
+
+                                <tr>
+
+                                <td>{{ colgado.id }}</td>
+                                <td>{{ colgado.part_key }}</td>
+                                <td>{{ colgado.part_no }}</td>
+                                <td>{{ colgado.pieza_rack }}</td>
+                                <td>{{ colgado.rack_eslabon }}</td>
+                                <td> <a href="{{ url_for('delete', id=colgado.id) }}">Delete</a> </td>
+                                <td> <a href="{{ url_for('edit', id=colgado.id) }}">Edit Rating</a> </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+
+                <a href="{{ url_for('add') }}">Agregar Nuevo colgado</a>
+
+
+{% endblock %}

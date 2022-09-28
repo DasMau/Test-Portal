@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<body>
+    <form action=" {{ url_for('edit') }}" method="POST">
+        <p>Part_No: {{colgado.part_no}}</p>
+        <p>Piezas Rack: {{colgado.pieza_rack}} </p>
+        <p>Piezas Rack: {{colgado.rack_eslabon}} </p>
+            <input hidden="hidden" name="id" value=" {{colgado.id}} ">
+        <input name="pieza_rack" type="int" placeholder="Nueva pieza_rack">
+        <input name="rack_eslabon" type="int" placeholder="Nueva rack_eslabon">
+        <button type="submit">Cambiar Colgado</button>
+    </form>
+
+</body>
+{% endblock %}
