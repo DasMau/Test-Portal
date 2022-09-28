@@ -22,7 +22,7 @@ load_dotenv()
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv("SECRET_DB")
+app.config['SECRET_KEY'] = os.environ.get("SECRET_DB")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
@@ -31,7 +31,11 @@ Bootstrap(app)
 
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///colgados.db"
+# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///colgados.db"
+
+# migracion a PosgreSQL
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+
 #Optional: But it will silence the deprecation warning in the console.
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
