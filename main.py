@@ -34,7 +34,7 @@ Bootstrap(app)
 # app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///colgados.db"
 
 # migracion a PosgreSQL
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///colgados.db")
 
 #Optional: But it will silence the deprecation warning in the console.
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
